@@ -3,7 +3,7 @@ var app = express();
 var port = 4000;
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-const path = require("path");
+// const path = require("path");
 
 // Enable CORS and cookies first
 app.use(cors({
@@ -29,13 +29,13 @@ app.use('/auth', AuthRoutes);
 app.use('/api', VideoRoutes);
 app.use('/commentApi', CommentRoutes);
 
-// Serve frontend static files after API routes
-app.use(express.static(path.join(__dirname, "client")));
+// // Serve frontend static files after API routes
+// app.use(express.static(path.join(__dirname, "client")));
 
-// Serve index.html for any other route (React router)
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "index.html"));
-});
+// // Serve index.html for any other route (React router)
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "client", "index.html"));
+// });
 
 app.listen(port, () => {
   console.log("Server Running on Port", port);
