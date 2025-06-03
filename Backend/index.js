@@ -7,10 +7,6 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 // const path = require("path");
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// Serve Vite static files from "client" folder
 app.use(express.static(path.join(__dirname, "client")));
 
 app.get("*", (req, res) => {
