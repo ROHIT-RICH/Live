@@ -30,11 +30,11 @@ app.use('/api', VideoRoutes);
 app.use('/commentApi', CommentRoutes);
 
 // // Serve frontend static files after API routes
-app.use(express.static(path.join(__dirname, "dist")));
+app.use(express.static(path.join(__dirname, "client")));
 
 // Serve index.html for any other route (React router)
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
+  res.sendFile(path.join(__dirname, "client", "index.html"));
 });
 
 app.listen(port, () => {
