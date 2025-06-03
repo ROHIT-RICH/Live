@@ -3,8 +3,7 @@ var app = express();
 var port = 4000;
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-import path from "path";
-import { fileURLToPath } from "url";
+const path = require("path");
 
 // const path = require("path");
 app.use(express.static(path.join(__dirname, "client")));
