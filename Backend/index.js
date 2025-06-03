@@ -5,31 +5,22 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const path = require("path");
 
-// const path = require("path");
-app.use(express.static(path.join(__dirname, "client")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "index.html"));
-});
-
-
-
+// Enable CORS and cookies first
 app.use(cors({
-    origin:'http://localhost:3000',//your frontend URL
-    credentials:true //to use cookies
+    origin: 'http://localhost:3000', // your frontend URL
+    credentials: true // to use cookies
 }));
 
-// inbuilt middleware
+// Parse JSON bodies
 app.use(express.json());
 
-// use cookieParser also builtin middleware
+// Parse cookies
 app.use(cookieParser());
 
-// db
+// Connect to database
 require('./Connenction/conn');
 
-
-
+// Register API routes before static files
 const AuthRoutes = require('./Routes/user');
 const VideoRoutes = require('./Routes/video');
 const CommentRoutes = require('./Routes/comment');
@@ -38,4 +29,14 @@ app.use('/auth', AuthRoutes);
 app.use('/api', VideoRoutes);
 app.use('/commentApi', CommentRoutes);
 
-app.listen(port, ()=>{console.log("Server Running on Port" , port)});
+// Serve frontend static files after API routes
+app.use(express.static(path.join(__dirname, "client")));
+
+// Serve index.html for any other route (React router)
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "index.html"));
+});
+
+app.listen(port, () => {
+  console.log("Server Running on Port", port);
+});
