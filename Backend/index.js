@@ -6,17 +6,9 @@ const cors = require('cors');
 const path = require("path");
 
 // Enable CORS and cookies first
-const allowedOrigins = ['http://localhost:3000', 'https://live-lp4l.onrender.com'];
-
 app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    credentials: true
+  origin: ['https://live-lp4l.onrender.com'], // put your actual frontend URL here
+  credentials: true,
 }));
 
 // Parse JSON bodies
