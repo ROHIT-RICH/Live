@@ -62,7 +62,7 @@ function navbar({ setSideNav, sideNav }) {
   async function getLogOut() {
     axios
       .post(
-        `http://localhost:4000/auth/logout`,
+        `https://live-lp4l.onrender.com/auth/logout`,
         {},
         { withCredentials: true }
       )
