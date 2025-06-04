@@ -19,7 +19,7 @@ function Video() {
 
   async function fetchVideoById() {
     await axios
-      .get(`http://localhost:4000/api/getVideoById/${id}`)
+      .get(`https://live-lp4l.onrender.com/api/getVideoById/${id}`)
       .then((res) => {
         console.log(res.data.video);
 
@@ -32,7 +32,7 @@ function Video() {
 
   async function getCommentByVideoId() {
     await axios
-      .get(`http://localhost:4000/commentApi/comment/${id}`)
+      .get(`https://live-lp4l.onrender.com/commentApi/comment/${id}`)
       .then((res) => {
         console.log(res);
         setComments(res.data.comments);
@@ -53,7 +53,7 @@ function Video() {
       message: comment,
     };
     await axios
-      .post(`http://localhost:4000/commentApi/comment/`, body, {
+      .post(`https://live-lp4l.onrender.com/commentApi/comment/`, body, {
         withCredentials: true,
       })
       .then((res) => {
