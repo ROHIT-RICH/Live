@@ -13,7 +13,7 @@ function Profile({sideNav}){
     const{id} = useParams();
 
     async function fetchProfileData() {
-        axios.get(`http://localhost:4000/api/${id}/channel`).then(res=>{
+        axios.get(`https://live-lp4l.onrender.com/api/${id}/channel`).then(res=>{
             // console.log(res);
             setData(res.data.video);
 
