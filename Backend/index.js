@@ -7,7 +7,7 @@ const path = require("path");
 
 // Enable CORS and cookies first
 app.use(cors({
-  origin: ['https://live-lp4l.onrender.com'], // put your actual frontend URL here
+  origin: 'https://live-lp4l.onrender.com', // put your actual frontend URL here
   credentials: true,
 }));
 
