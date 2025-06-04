@@ -7,7 +7,7 @@ const path = require("path");
 
 // Enable CORS and cookies first
 app.use(cors({
-    origin: 'http://localhost:3000', // your frontend URL
+    origin: true, // your frontend URL
     credentials: true // to use cookies
 }));
 
