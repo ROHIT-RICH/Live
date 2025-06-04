@@ -68,7 +68,7 @@ function VideoUpload() {
 
   async function handleSubmit() {
     setLoader(true);
-    await axios.post(`http://localhost:4000/api/video`, upLoad, { withCredentials: true}).then(res=>{
+    await axios.post(`https://live-lp4l.onrender.com/api/video`, upLoad, { withCredentials: true}).then(res=>{
         console.log(res);
         setLoader(false);
         navigate('/');
