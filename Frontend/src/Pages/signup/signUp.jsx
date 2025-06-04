@@ -28,7 +28,7 @@ function SignUp() {
   // signUp function
   async function handleSignUp() {
     setLoader(true);
-    axios.post(`http://localhost:4000/auth/signUp`, signUpField).then((res) => {
+    axios.post(`https://live-lp4l.onrender.com/auth/signUp`, signUpField).then((res) => {
         // console.log(res);
         toast.success(res.data.message);
         setLoader(false);
